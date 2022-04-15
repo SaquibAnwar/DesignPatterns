@@ -36,6 +36,58 @@ namespace DesignPatterns
             System.Console.WriteLine("Student Name : " + student.Name);
             System.Console.WriteLine("Student College : " + student.College);
             #endregion
+        
+        
+            #region Factory Pattern
+
+            ICardFactory cardFactory = null;
+            System.Console.WriteLine("Enter the card you would like to opt: ");
+            string card = Console.ReadLine();
+
+            switch(card.ToLower())
+            {
+                case "moneyback":
+                    cardFactory = new MoneyBackFactory(50000, 0);
+                    break;
+                case "titanium":
+                    cardFactory = new TitaniumFactory(100000, 500);
+                    break;
+                case "platinum":
+                    cardFactory = new PlatinumFactory(1000000, 10000);
+                    break;
+            }
+
+            CreditCard creditCard = cardFactory.GetCreditCard();
+            System.Console.WriteLine("Your Card Details are as follows:\n");
+            System.Console.WriteLine($"Card Type: {creditCard.CardType}\nCard Limit: {creditCard.CardLimit}\nAnnualCharges: {creditCard.AnnualCharges}");
+            Console.ReadKey();
+            #endregion
+        
+        
+            #region  Abstract Factory Design Pattern
+
+            IMobilePhone nokiaMobilePhone = new Nokia();
+            MobileClient nokiaClient = new MobileClient(nokiaMobilePhone);
+
+            System.Console.WriteLine("\n****************** Nokia *********************");
+            System.Console.WriteLine(nokiaClient.GetSmartPhoneModelDetails());
+            System.Console.WriteLine(nokiaClient.GetNormalPhoneModelDetails());
+
+            IMobilePhone samsungMobilePhone = new Samsung();
+            MobileClient samsungClient = new MobileClient(samsungMobilePhone);
+
+            System.Console.WriteLine("****************** Samsung *********************");
+            System.Console.WriteLine(samsungClient.GetSmartPhoneModelDetails());
+            System.Console.WriteLine(samsungClient.GetNormalPhoneModelDetails());
+
+            #endregion
+        
+        
+            #region Prototype Design Pattern
+            
+            
+
+            #endregion
         }
     }
 }
