@@ -28,18 +28,14 @@ namespace DesignPatterns
             }
             #endregion
 
-            #region Builder Pattern
-            Console.WriteLine("\nLet's start with the Builder pattern!");
-            var toyACreator = new ToyCreator(new ToyABuilder());
-            toyACreator.BuildToy();
-            toyACreator.GetToy();
-
-            var toyBCreator = new ToyCreator(new ToyBBuilder());
-            toyBCreator.BuildToy();
-            toyBCreator.GetToy();
-            #endregion
         
-            
+            #region Fluent Builder
+            Student student = StudentBuilder.Init().SetName("Saquib")
+                .SetCollege("SRM").Build();
+
+            System.Console.WriteLine("Student Name : " + student.Name);
+            System.Console.WriteLine("Student College : " + student.College);
+            #endregion
         }
     }
 }
