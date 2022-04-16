@@ -41,8 +41,9 @@ namespace DesignPatterns
             #region Factory Pattern
 
             ICardFactory cardFactory = null;
-            System.Console.WriteLine("Enter the card you would like to opt: ");
-            string card = Console.ReadLine();
+            // System.Console.WriteLine("Enter the card you would like to opt: ");
+            // string card = Console.ReadLine();
+            string card = "Titanium";
 
             switch(card.ToLower())
             {
@@ -58,9 +59,9 @@ namespace DesignPatterns
             }
 
             CreditCard creditCard = cardFactory.GetCreditCard();
-            System.Console.WriteLine("Your Card Details are as follows:\n");
+            System.Console.WriteLine("\nYour Card Details are as follows:\n");
             System.Console.WriteLine($"Card Type: {creditCard.CardType}\nCard Limit: {creditCard.CardLimit}\nAnnualCharges: {creditCard.AnnualCharges}");
-            Console.ReadKey();
+            //Console.ReadKey();
             #endregion
         
         
@@ -85,7 +86,31 @@ namespace DesignPatterns
         
             #region Prototype Design Pattern
             
-            
+            Developer dev = new Developer();
+            dev.Name = "Saquib";
+            dev.Designation = "Integration Engineer";
+            dev.TechStack = "C#";
+            dev.YOE = 3;
+
+            Developer devCopy = dev.Clone() as Developer;
+            devCopy.Name = "Vipul";
+
+            System.Console.WriteLine(dev.GetDetails());
+            System.Console.WriteLine(devCopy.GetDetails());
+
+
+            ProgramManager pm = new ProgramManager();
+            pm.Name = "Tiffany";
+            pm.Designation = "Junior PM";
+            pm.YOE = 3;
+
+            ProgramManager pmCopy = pm.Clone() as ProgramManager;
+            pmCopy.Name = "Jeff";
+
+            System.Console.WriteLine(pm.GetDetails());
+            System.Console.WriteLine(pmCopy.GetDetails());
+            System.Console.WriteLine(pm.GetDetails());
+
 
             #endregion
         }
