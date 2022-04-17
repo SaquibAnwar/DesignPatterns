@@ -6,6 +6,8 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
+            goto Adapter;
+            #region CreationalDesignPatterns
             #region Singleton Pattern
             Console.WriteLine("Let's start with the Singleton pattern!");
 
@@ -112,6 +114,20 @@ namespace DesignPatterns
             System.Console.WriteLine(pm.GetDetails());
 
 
+            #endregion
+            #endregion
+        
+            #region StructuralDesignPattern
+
+            Adapter:
+
+            #region Adapter Design Pattern
+
+            IPaymentAdapter paymentAdapter = new PayUPaymentAdapter();
+            SwiggyPayment swiggyPayment = new SwiggyPayment(paymentAdapter);
+            swiggyPayment.MakePayment();
+
+            #endregion
             #endregion
         }
     }
