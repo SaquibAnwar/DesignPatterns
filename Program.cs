@@ -123,9 +123,42 @@ namespace DesignPatterns
 
             #region Adapter Design Pattern
 
+            System.Console.WriteLine("\nAdapter Design Pattern");
             IPaymentAdapter paymentAdapter = new PayUPaymentAdapter();
             SwiggyPayment swiggyPayment = new SwiggyPayment(paymentAdapter);
             swiggyPayment.MakePayment();
+
+            #endregion
+
+            #region Decorator Design Pattern
+
+            System.Console.WriteLine("\nDecorator Design Pattern");
+            IPizza nonVegPizza = new CheezeTopping(
+                new ChickenTopping(
+                    new CheezeTopping(
+                        new SauceTopping(
+                            new PizzaBase()
+                        )
+                    )
+                )
+            );
+            System.Console.WriteLine("\nChicken Pizza");
+            System.Console.WriteLine("Composition: " +nonVegPizza.GetComposition());
+            System.Console.WriteLine("Cost: " + nonVegPizza.GetCost());
+
+            System.Console.WriteLine("\nVeg Pizza");
+            IPizza vegPizza = new CheezeTopping(
+                new PaneerTopping(
+                    new CheezeTopping(
+                        new SauceTopping(
+                            new PizzaBase()
+                        )
+                    )
+                )
+            );
+            
+            System.Console.WriteLine("Composition: " + vegPizza.GetComposition());
+            System.Console.WriteLine("Cost: "+ vegPizza.GetCost());
 
             #endregion
             #endregion
