@@ -188,8 +188,8 @@ namespace DesignPatterns
         
         
             #region Behavioural Design Pattern
-            Adapter:
 
+            #region  Observer Design Pattern
             System.Console.WriteLine("\nObserver Design Pattern");
             Subject subject = new Subject();
             ObserverOne observerOne = new ObserverOne();
@@ -202,6 +202,22 @@ namespace DesignPatterns
             subject.SomeBusinessLogic();
             subject.Detach(observerTwo);
             subject.SomeBusinessLogic();
+            #endregion
+
+            Adapter:
+            #region  Strategy Design Pattern
+            System.Console.WriteLine("\nStrategy Design Pattern");
+            Context context = new Context();
+            System.Console.WriteLine("\nStrategy set to normal sorting");
+            context.SetStrategy(new StrategyA());
+            context.BusinessLogic();
+
+            System.Console.WriteLine("\nStrategy set to reverse sorting");
+            context.SetStrategy(new StrategyB());
+            context.BusinessLogic();
+
+            #endregion
+
             #endregion
         
         }
