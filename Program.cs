@@ -163,7 +163,6 @@ namespace DesignPatterns
             
             #region Flyweight Design Pattern
             System.Console.WriteLine("\nFlyweight Design Pattern");
-            Adapter:
 
             ShapeObjectFactory shapeObjectFactory = new ShapeObjectFactory();
 
@@ -186,6 +185,25 @@ namespace DesignPatterns
 
             #endregion
             #endregion
+        
+        
+            #region Behavioural Design Pattern
+            Adapter:
+
+            System.Console.WriteLine("\nObserver Design Pattern");
+            Subject subject = new Subject();
+            ObserverOne observerOne = new ObserverOne();
+            subject.Attach(observerOne);
+
+            ObserverTwo observerTwo = new ObserverTwo();
+            subject.Attach(observerTwo);
+
+            subject.SomeBusinessLogic();
+            subject.SomeBusinessLogic();
+            subject.Detach(observerTwo);
+            subject.SomeBusinessLogic();
+            #endregion
+        
         }
     }
 }
