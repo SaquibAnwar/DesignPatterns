@@ -8,5 +8,10 @@ namespace DesignPatterns
         public int PSP { get; set; }
         public string College { get; set; }
         public string Batch { get; set; }
+
+        public static StudentBuilder GetBuilder()
+        {
+            return new StudentBuilder();
+        }
     }
 }

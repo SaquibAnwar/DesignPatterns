@@ -32,7 +32,7 @@ namespace DesignPatterns
 
         
             #region Fluent Builder
-            Student student = StudentBuilder.Init().SetName("Saquib")
+            Student student = Student.GetBuilder().SetName("Saquib")
                 .SetCollege("SRM").Build();
 
             System.Console.WriteLine("Student Name : " + student.Name);
@@ -119,7 +119,6 @@ namespace DesignPatterns
         
             #region StructuralDesignPattern
 
-            Adapter:
 
             #region Adapter Design Pattern
 
@@ -159,6 +158,31 @@ namespace DesignPatterns
             
             System.Console.WriteLine("Composition: " + vegPizza.GetComposition());
             System.Console.WriteLine("Cost: "+ vegPizza.GetCost());
+
+            #endregion
+            
+            #region Flyweight Design Pattern
+            System.Console.WriteLine("\nFlyweight Design Pattern");
+            Adapter:
+
+            ShapeObjectFactory shapeObjectFactory = new ShapeObjectFactory();
+
+            IShape shape = shapeObjectFactory.GetShape("Rectangle");
+            shape.Print();
+            shape = shapeObjectFactory.GetShape("Rectangle");
+            shape.Print();
+            shape = shapeObjectFactory.GetShape("Rectangle");
+            shape.Print();
+
+            shape = shapeObjectFactory.GetShape("Circle");
+            shape.Print();
+            shape = shapeObjectFactory.GetShape("Circle");
+            shape.Print();
+            shape = shapeObjectFactory.GetShape("Circle");
+            shape.Print();
+
+            int numberOfObjects = shapeObjectFactory.TotalObjectsCreated;
+            System.Console.WriteLine($"\nTotal no. of objects created: {numberOfObjects}");
 
             #endregion
             #endregion

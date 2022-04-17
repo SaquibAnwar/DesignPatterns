@@ -3,14 +3,12 @@ namespace DesignPatterns
 
     public class StudentBuilder
     {
-        private Student _student = new Student();
+        private Student _student;
 
-        public static StudentBuilder Init()
+        public StudentBuilder()
         {
-            return new StudentBuilder();
+            _student = new Student();
         }
-
-        public Student Build() => _student;
 
         public StudentBuilder SetName(string Name)
         {
@@ -46,6 +44,11 @@ namespace DesignPatterns
         {
             _student.Batch = Batch;
             return this;
+        }
+
+        public Student Build()
+        {
+            return _student;
         }
     }
 }
