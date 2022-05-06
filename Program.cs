@@ -185,8 +185,7 @@ namespace DesignPatterns
 
             #endregion
             #endregion
-        
-        
+         
             #region Behavioural Design Pattern
 
             #region  Observer Design Pattern
